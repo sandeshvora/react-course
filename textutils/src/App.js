@@ -40,22 +40,19 @@ function App() {
   return (
     <>
     <Router>
-    <Routes>
-    <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} key={new Date()} />
-    <Alert alert={alert}/>
-    <div className="container my-3">
-    {/* /users --> Component 1
-        /users/home --> Component 2 */}
-          <Route exact path="/about">
-            <About mode={mode} />
-          </Route>
-          <Route exact path="/">
-            <TextForm showAlert={showAlert} heading="TextUtils - word counter" mode={mode}/>
-          </Route>
-    </div>
-    </Routes>
+      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} key={new Date()} />
+      <Alert alert={alert}/>
+      <div className="container my-3">
+      <Routes>
+
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="TextUtils - word counter" mode={mode}/>}>
+            </Route>
+            <Route exact path="/about" element={<About mode={mode} />}>
+            </Route>
+      </Routes>
+      </div>
     </Router>
-    </> 
+    </>
   );
 }
 
